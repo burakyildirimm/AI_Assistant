@@ -30,9 +30,9 @@ def talk(text):
 def is_alexa(command):
     command = command.lower()
     if 'alexa' in command:
-        command = command.replace('alexa', '')
+        return command.replace('alexa', '')
     else:
-        command = ""
+        return ""
 
 def take_command():
     command = ''
@@ -44,14 +44,14 @@ def take_command():
             if is_alexa(command) != "":
                 command = is_alexa(command)
                 print(command)
+                run_alexa(command)
     except:
         print("Do not recognize your mic connaction !!")
         pass
     return command
 
 
-def run_alexa():
-    command = take_command()
+def run_alexa(command):
 
     if 'play' in command:
         song = command.replace('play', '')
@@ -124,10 +124,8 @@ def run_alexa():
             print(new_text + '\n' + link )
             talk(new_text)
     else:
-        talk("Please repeat again!")
         pass
 
 
-# while True:
-#     run_alexa()
-talk("what are you doing man")
+while True:
+    take_command()
