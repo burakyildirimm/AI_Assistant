@@ -23,8 +23,9 @@ def query(query_str):
         return ''
 
 def talk(text):
-    engine.say(text)
-    engine.runAndWait()
+    # engine.say(text)
+    # engine.runAndWait()
+    os.system(f'echo {text} | festival --tts')
 
 def is_alexa(command):
     command = command.lower()
@@ -127,5 +128,6 @@ def run_alexa():
         pass
 
 
-while True:
-    run_alexa()
+# while True:
+#     run_alexa()
+talk("what are you doing man")
